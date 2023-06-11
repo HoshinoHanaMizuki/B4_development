@@ -1,0 +1,134 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Azuki';
+  src: url("../fonts/あずきフォント/azukiP.woff") format("woff");
+  src: url("../fonts/あずきフォント/azukiP.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Karakaze';
+  src: url("../fonts/からかぜ/karakaze-R.woff") format("woff");
+  src: url("../fonts/からかぜ/karakaze-R.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Tanuki';
+  src: url("../fonts/たぬき油性マジック/TanukiMagic.woff") format("woff");
+  src: url("../fonts/たぬき油性マジック/TanukiMagic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Memo';
+  src: url("../fonts/めもわーる/memoir.woff") format("woff");
+  src: url("../fonts/めもわーる/memoir.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'jk_L';
+  src: url("../fonts/JKゴシックフォントL/JKG-L_3.woff") format("woff");
+  src: url("../fonts/JKゴシックフォントL/JKG-L_3.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'PixelMPlus';
+  src: url("../fonts/PixelMPlus/PixelMplus10-Regular.woff") format("woff");
+  src: url("../fonts/PixelMPlus/PixelMplus10-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'LightNovel';
+  src: url("../fonts/ラノベPOP/LightNovelPOPv2.woff") format("woff");
+  src: url("../fonts/ラノベPOP/LightNovelPOPv2.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Utamin';
+  src: url("../fonts/うたミンフォント/utamin=s1=20151214.woff") format("woff");
+  src: url("../fonts/うたミンフォント/utamin=s1=20151214.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Makinus';
+  src: url("../fonts/マキナス/Makinas-4-Flat.woff") format("woff");
+  src: url("../fonts/マキナス/Makinas-4-Flat.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Kouzan';
+  src: url("../fonts/KouzanGyoushoOTF/KouzanGyoushoOTF.woff") format("woff");
+  src: url("../fonts/KouzanGyoushoOTF/KouzanGyoushoOTF.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Shokaki';
+  src: url("../fonts/しょかきうたげ/しょかきうたげ（無料版）.woff") format("woff");
+  src: url("../fonts/しょかきうたげ/しょかきうたげ（無料版）.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'YuMincho';
+  font-weight: normal;
+  src: local("YuMincho-Light"), local("Yu Mincho Light");
+}
+
+@font-face {
+  font-family: 'Kokumin';
+  src: url("../fonts/刻明朝/font_1_kokumr_1.00_rls.woff") format("woff");
+  src: url("../fonts/刻明朝/font_1_kokumr_1.00_rls.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Iroha';
+  src: url("../fonts/いろはクラシック/irohakakuC-Bold.woff") format("woff");
+  src: url("../fonts/いろはクラシック/irohakakuC-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Soukou';
+  src: url("../fonts/装甲明朝/SoukouMincho.woff") format("woff");
+  src: url("../fonts/装甲明朝/SoukouMincho.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'CopoLogoB';
+  src: url("../fonts/コーポレートロゴB/Corporate-Logo-Bold-ver3.woff") format("woff");
+  src: url("../fonts/コーポレートロゴB/Corporate-Logo-Bold-ver3.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Genkai';
+  src: url("../fonts/源界明朝/genkai-mincho.woff") format("woff");
+  src: url("../fonts/源界明朝/genkai-mincho.woff2") format("woff2");
+}
+
+.image_display .image_display {
+  width: 500px;
+  height: 300px;
+}
+
+.image_display .image_display img {
+  max-width: 100%;
+  max-height: 90%;
+}
+
+#parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#font_choose {
+  width: 50%;
+}
+
+#font_display {
+  width: 50%;
+  margin: auto;
+}
+
+#sample {
+  font-family: 'Azuki';
+  text-align: center;
+  font-size: 50px;
+}
+/*# sourceMappingURL=font_decide.css.map */
