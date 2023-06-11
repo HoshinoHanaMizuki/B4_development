@@ -1,0 +1,118 @@
+#parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+#CanvasZone {
+  width: 65%;
+  height: 1280px;
+  margin-right: 100px;
+  position: relative;
+}
+
+#CanvasZone #DisplayCanvas, #CanvasZone #DisplayCanvas_text, #CanvasZone #DisplayCanvas_background, #CanvasZone #DisplayCanvas_background_custom, #CanvasZone #DisplayCanvas_combine {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  float: left;
+  max-width: 960px;
+  max-height: 540px;
+  width: 100%;
+  height: 100%;
+}
+
+#CanvasZone #CombineCanvasesButton {
+  position: absolute;
+  top: 690px;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  float: left;
+  font-size: 40px;
+  font-family: "Genkai";
+}
+
+#CanvasZone #drawPositionDisplay {
+  position: absolute;
+  top: 100px;
+  border: double 5px;
+  border-left-color: black;
+  border-right-color: gray;
+  font-size: 20px;
+}
+
+#OperationZone {
+  width: 35%;
+}
+
+#decideButton {
+  text-align: center;
+}
+
+#decideButton #common {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#decideButton #common #impactButton, #decideButton #common #TouitsuButton {
+  margin-right: 20px;
+}
+
+#decideButton #mv {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#decideButton #mv #EasyBack_MV_BW, #decideButton #mv #EasyBack_MV {
+  margin-right: 20px;
+}
+
+#Patterns {
+  height: auto;
+}
+
+#Patterns .funny, #Patterns .dark, #Patterns .elements, #Patterns .ghost {
+  display: none;
+}
+
+#Patterns .List {
+  margin-right: 5px;
+  margin-bottom: 50px;
+  width: 20%;
+  height: 150px;
+  float: left;
+  text-align: center;
+}
+
+#Patterns .List img {
+  max-width: 100%;
+  max-height: 80%;
+}
+
+#Patterns .List p {
+  max-width: 100%;
+  max-height: 20%;
+}
+
+#background_ResetButton {
+  margin-top: 10px;
+}
+
+footer {
+  font-size: 10px;
+  text-align: right;
+  width: 100%;
+  height: 3%;
+}
+/*# sourceMappingURL=image_design.css.map */

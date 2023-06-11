@@ -1,0 +1,43 @@
+.database_contents {
+  width: auto;
+  height: 400px;
+  border: double 3px black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.database_contents .informations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 100px;
+  width: auto;
+  height: 400px;
+}
+
+.database_contents .informations .NowValues {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.database_contents .informations .NowValues li {
+  list-style: none;
+  padding-bottom: 20px;
+}
+
+.database_contents .informations .colorChoice, .database_contents .informations .fontChoice, .database_contents .informations .scene {
+  margin-top: 20px;
+}
+
+.database_contents .informations .colorChoice .to_next, .database_contents .informations .fontChoice .to_next, .database_contents .informations .scene .to_next {
+  font-size: 15px;
+}
+/*# sourceMappingURL=index.css.map */

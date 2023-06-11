@@ -1,0 +1,43 @@
+#imageAnalyzePart #MainColorDefine, #imageAnalyzePart #AccentColorDefine {
+  display: none;
+}
+
+#imageAnalyzePart #Informations {
+  border: double black 3px;
+  margin-bottom: 20px;
+}
+
+#imageAnalyzePart #Informations li {
+  list-style: none;
+}
+
+#imageAnalyzePart #colorDefinePart {
+  border: double black 3px;
+}
+
+#imageAnalyzePart #colorDefinePart #MainColorDefine .analyzed_pic, #imageAnalyzePart #colorDefinePart #AccentColorDefine .analyzed_pic {
+  cursor: pointer;
+  border: black 1px solid;
+}
+
+#imageAnalyzePart #colorDefinePart #MainColorDefine .ButtonList, #imageAnalyzePart #colorDefinePart #AccentColorDefine .ButtonList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#imageAnalyzePart #colorDefinePart #MainColorDefine .ButtonList li, #imageAnalyzePart #colorDefinePart #AccentColorDefine .ButtonList li {
+  list-style: none;
+  margin: 5px;
+}
+
+#imageAnalyzePart #colorDefinePart #MainColorDefine .displayChoice, #imageAnalyzePart #colorDefinePart #AccentColorDefine .displayChoice {
+  display: none;
+}
+
+#imageAnalyzePart #colorDefinePart #MainColorDefine .displayChoice .displayBox, #imageAnalyzePart #colorDefinePart #AccentColorDefine .displayChoice .displayBox {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+}
+/*# sourceMappingURL=image_analyze.css.map */
