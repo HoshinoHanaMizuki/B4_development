@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <title>Develop_B4</title>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div id="imageUploadPart">
+            <!-- エンコードタイプに広く対応（ポスト -->
+            <form action="/" method="post" enctype="multipart/form-data">
+            <p><h2>[画像をアップロード]</h2> </p>
+            <input type="file" name="imageFile" accept="image/*">
+            <p><input type="submit" value="アップロード" /></p>
+            </form>
+        
+            <div class="imageDisplay">             
+
+                <p><h2>[アップロードした画像一覧]</h2> </p>
+                <div id="uploaded_image_all"> 
+                    <!-- カラムの数だけ繰り返し行うアップロードした画像表示 -->
+                    <% imageTable.forEach((imagedata)=>{ %>
+                        <p class="display_num">
+                            <%= imagedata.id %>.
+                            <div class="database_contents">
+                                <img src="/upload/<%= imagedata.imageName %>"  class="uploaded" style="display:none;">
+                                <canvas class="DisplayCanvas" width="640" height="360"></canvas>
+                                
+                                <div class="informations">
+                                    <div class="NowValues">
+                                        <div class="MainInfo" style="display: none;"><%=imagedata.MainColor%></div>
+                                        <div class="AccentInfo" style="display: none;"><%=imagedata.AccentColor%></div> 
+                                        <div class="FontInfo" style="display: none;"><%=imagedata.Font%></div> 
+                                        <li class="MainList">メインカラー　:<%=imagedata.MainColor%></li> 
+                                        <li class="AccentList">アクセントカラー　:<%=imagedata.AccentColor%></li> 
+                                        <li class="FontList">フォント　:<%=imagedata.Font%></li>
+                                    </div>
+            
+                                    <!-- formでidの情報を送る -->
+                                    <form action="/image_analyze" method="post" enctype="multipart/form-data" class="colorChoice">
+                                        <input class="submit_id" type="number" name="imagedata_id" value="<%= imagedata.id %>">
+                                        <input type="submit" value="キャラのメイン＆アクセントカラー決定・更新">
+                                    </form>
+            
+                                    <form action="/font" method="post" enctype="multipart/form-data" class="fontChoice">
+                                        <input class="submit_id" type="number" name="imagedata_id" value="<%= imagedata.id %>">
+                                        <input type="submit" value="フォントを選ぶ">
+                                    </form>
+    
+                                    <form action="/image_design" method="post" enctype="multipart/form-data" class="scene">
+                                        <input type="text" name="imagedata_id" value="<%= imagedata.id %>" class="submit_id">
+                                        <input type="submit" class="to_next" value="シーン生成" disabled>
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </p>
+                    <% }); %>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>

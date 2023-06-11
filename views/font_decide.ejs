@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FontDecide</title>
+    <link rel="stylesheet" href="/css/font_decide.css">
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div class="image_display">
+            <p>対象の画像↓</p>
+            <% imageTable.forEach((imagedata)=>{ %>
+            <p class="image_display"><img src="/upload/<%= imagedata.imageName %>" alt=""></p>
+            <%});%>
+        </div>
+        
+        <div id="parent">
+            <div id="font_choose">
+                <p>使いたいフォントのイメージを選んでください</p>
+
+                <p>
+                    <form name="CoolorCute">
+                        <input type="radio" class="CoolorCute" name="CoolorCute" value="1" onchange="change_font()">かっこいい
+                        <input type="radio" class="CoolorCute" name="CoolorCute" value="0" checked onchange="change_font()">かわいい
+                    </form>
+                    
+                </p>
+
+                <p>
+                    <form name="DigtalorHandson">
+                        <input type="radio" class="DigtalorHandson" name="DigtalorHandson" value="1" onchange="change_font()">デジタル風
+                        <input type="radio" class="DigtalorHandson" name="DigtalorHandson" value="0" checked onchange="change_font()">手書き風
+                    </form>
+                    
+                </p>
+
+                <p>
+                    <form name="ThickorThin">
+                        <input type="radio" class="ThickorThin" name="ThickorThin" value="1" onchange="change_font()">太い
+                        <input type="radio" class="ThickorThin" name="ThickorThin" value="0" checked onchange="change_font()">細い   
+                    </form>
+                    
+                </p>
+
+                <p>
+                    <form name="UniqueValue">
+                        <input type="radio" class="UniqueValue" name="UniqueValue" value="1" onchange="change_font()">ユニーク性（大）
+                        <input type="radio" class="UniqueValue" name="UniqueValue" value="0" checked onchange="change_font()">ユニーク性（小）
+                    </form>
+                    
+                </p>
+
+                <form action="/font_choosed" method="post" enctype="multipart/form-data">
+
+                    <p><input type="text" name="font_value" id="font_value" value="0000"></p>
+                    <% imageTable.forEach((imagedata)=>{ %>
+                        <p><input type="text" name="imagedata_id" value="<%= imagedata.id %>" id="id_text"></p>
+                        <%});%>
+
+                    <input type="submit" id="submit_font" value="この組み合わせのフォントに決定">
+                </form>
+            </div>
+
+            <div id="font_display">
+                <h3 id="sample">Sampleはこんな感じ!</h3>
+            </div>
+    
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="font_decide.js"></script>
+</body>
+</html>

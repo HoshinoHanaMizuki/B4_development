@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Develop_B4</title>
+    <link rel="stylesheet" href="/css/image_design.css">
+    <link rel="stylesheet" href="/css/Fonts.css">
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div id="parent">
+            <% imageTable.forEach((imagedata)=>{ %>
+                <p><img src="/upload/<%= imagedata.imageName %>" alt="" class="submit_image" style="display: none;"></p>
+                <p class="submit_MainColor" style="display: none;"><%= imagedata.MainColor %></p>
+                <p class="submit_AccentColor" style="display: none;"><%= imagedata.AccentColor %></p>
+                <p class="submit_Font" style="display: none;"><%= imagedata.Font %></p>
+            <%});%>
+
+            <div id="CanvasZone">
+                <canvas id="DisplayCanvas_background" width="960px" height="540px" style="border:solid black 1px;"></canvas>
+                <canvas id="DisplayCanvas_background_custom" width="960px" height="540px"></canvas>
+                <canvas id="DisplayCanvas" width="960px" height="540px"></canvas>
+                <canvas id="DisplayCanvas_text" width="960px" height="540px"></canvas>
+                <canvas id="DisplayCanvas_combine" width="960px" height="540px" style="border:solid black 1px; display: none;"></canvas>
+                <a id="CombineCanvasesButton" style="cursor: pointer;">完成イメージをダウンロード</a> 
+                <form action="/backtotop" method="post">
+                    <input type="submit" value="トップページへ戻る">
+                </form>
+                <div id="drawPositionDisplay" style="visibility: hidden;">大体この辺り！</div>
+            </div>
+
+            <div id="OperationZone">
+                <div id="SongText_Custom">
+                    <p><h2>【テキストパート】</h2></p>
+                    <div class="SongText_insert">
+                        <form action="/SongText_insert" method="post" enctype="multipart/form-data">
+                            <input type="text" name="SongText">
+                            <input type="number" class="submit_id" name="imagedata_id" value="<%=imageTable[0].id%>" style="display:none;">
+                            <input type="submit" value="テキストを登録">
+                        </form>
+                    </div>
+                    <div class="SongText_List">
+                        <p><h3>登録テキスト一覧</h3></p>
+                        <% imageTable.forEach((imagedata)=>{ %>
+                            <p class="SongText">
+                                <div class="PositionMenu" style="cursor: pointer;"><%= imagedata.SongText %></div> 
+                                <div class="drawPositionBar" style="display: none;">
+                                   <p>テキストサイズ(px) 20<input class="text_size" type="range" min="20" max="100" value="20" step="10">100</p>
+                                   <p>描画位置(x) 0<input class="text_x_position" type="range" min="0" max="960" value="0">960</p>
+                                   <p>描画位置(y) 0<input class="text_y_position" type="range" min="0" max="540" value="0">540</p>
+                                   <button class="DrawPositionDecide">このテキストをこの位置で描画する</button>
+                                </div>
+                            </p>
+
+                        <%});%>
+                        <p><button id="songtext_ResetButton">描画したテキストをクリアする</p>
+                    </div>
+                </div>
+
+                <div id="Background_Custom">
+                    <div id="ColorScheme">
+                        <p><h2>【背景決定パート】</h2></p>
+                        <!-- 配色パターンをパターン分、羅列、サンプル画像表示 -->
+                        <div id="decideButton">
+                            <div id="common">    
+                                <div id="TouitsuButton">
+                                    <p>統一感を出す</p>
+                                </div>
+
+                                <div id="GradationButton">
+                                    <p><input id="gradationNumber" type="number" value="2" min="2" max="6"> 色グラデーション背景</p>
+                                </div>
+                            </div>
+                            
+                            <div id="mv">
+                                <div id="EasyBack_MV_BW" style="border:solid 2px black;">
+                                    <p>2色背景<p>（白黒）</p></p>
+                                </div>
+    
+                                <div id="EasyBack_MV">
+                                    <p>2色背景<p>（メイン・アクセント）</p></p>
+                                </div>
+                            </div> 
+                        </div>
+                        
+
+                    </div>
+
+                    <div id="Pattern">
+                        <p><h2>【パターン描画パート】</h2></p>
+                        <!-- パターンをパターン分、羅列、サンプル画像表示 -->
+                        <p><input type="checkbox" name="pattern" id="check_funny">明るめのカスタマイズパーツ</p>
+                        <p><input type="checkbox" name="pattern" id="check_dark">暗めのカスタマイズパーツ</p>
+                        <p><input type="checkbox" name="pattern" id="check_elements">エレメントのカスタマイズパーツ</p>
+                        <p><button id="background_ResetButton">カスタマイズ要素をリセットする</button><button id="shadow_ResetButton">影を消す</button></p>
+                        <div id="Patterns">  
+                            <div class="List"><img id="stripe" src="accents/stripe.png" alt=""><p>ストライプを描く</p></div>         
+                            <div class="List"><img id="shadow_Main" src="accents/shadow_Main.png" alt=""><p>立ち絵に影をつける(メインカラー)</p></div>         
+                            <div class="List"><img id="shadow_Accent" src="accents/shadow_Accent.png" alt=""><p>立ち絵に影をつける(アクセントカラー)</p></div>         
+                            <div class="List"><img id="shadow_black" src="accents/shadow.png" alt=""><p>立ち絵に影をつける（黒）</p></div>
+                            
+                            <div class="List funny"><img id="flowers" src="accents/funny/flowers.png" alt=""><p>花を添える</p></div>     
+                            <div class="List funny"><img id="musicmark" src="accents/funny/musicmark.png" alt=""><p>音符を並べる</p></div>         
+                            <div class="List funny"><img id="star" src="accents/funny/star.png" alt=""><p>星を配置する</p></div>         
+                            <div class="List funny"><img id="ryusei" src="accents/funny/ryusei.png" alt=""><p>流れ星を配置する</p></div>
+
+                            <div class="List dark"><img id="dark" src="accents/dark/dark.png" alt=""><p>紋章を配置する</p></div> 
+                            <div class="List dark"><img id="headBone" src="accents/dark/headBone.png" alt=""><p>ドクロを配置する</p></div> 
+                            <div class="List dark"><img id="magicCircle" src="accents/dark/magicCircle.png" alt=""><p>魔法陣を配置する</p></div> 
+
+                            <div class="List elements"><img id="fire" src="accents/elements/fire.png" alt=""><p>炎を描画</p></div> 
+                            <div class="List elements"><img id="water" src="accents/elements/water.png" alt=""><p>水を描画</p></div> 
+                            <div class="List elements"><img id="wind" src="accents/elements/wind.png" alt=""><p>風を描画</p></div> 
+                            <div class="List elements"><img id="land" src="accents/elements/land.png" alt=""><p>ランドを描画</p></div> 
+                                
+                        </div>
+                    </div>
+
+                    <!-- アクセントになるようなパーツ画像があれば挿入させる -->
+                    <!-- <div id="AccentParts_insert">
+                        <p><h2>【アクセントパーツ追加パート】</h2></p>
+                        
+
+
+                    </div> -->
+                </div>
+                
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <p>使用素材：七三ゆきのアトリエ　https://nanamiyuki.com/</p>
+        <p>花のイラスト・画像・フリー素材　百花繚乱　https://flowerillust.com/pop.html</p>
+        <p>いらすとや https://www.irasutoya.com/</p>
+        <p>かわいい無料素材イラスト工房 https://photo-step.co.jp/illustkobo/</p>
+        <p>Ⓒぴよたそ https://hiyokoyarou.com/</p>
+    </footer>
+    <script type="module" src="image_design.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/image_analyze.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="imageAnalyzePart">
+        <div id="colorDefinePart">
+            <p><h2>[メインカラーとアクセントカラーの選択]</h2></p>
+            <p>
+                <button id="MainColorButton">メインカラーを選ぶ！</button>
+                <button class="closeButton_Main">閉じる</button>
+                <div id="MainColorDefine">
+                    <p>画像の中からキャラクターのメインカラーをクリックしてください。</p>
+                    <p>
+                        <!-- 受け取ったデータベースの画像パス情報からアップロードした対象画像を表示 -->
+                        <% imageName.forEach((imagedata)=>{ %>
+                            <img src="/upload/<%= imagedata.imageName %>" class="analyzed_pic" alt="">
+            
+                        <% }); %> 
+                    </p>
+                    <div class="ButtonList">
+                        <li><button class="choiceOK">決定</button></li>
+                        <li><button class="closeButton_Main">閉じる</button></li>
+                    </div>
+                    
+                    <div class="displayChoice">
+                        <p>メインカラーはこの色！</p>
+                        <div class="displayBox"></div>
+                    </div>
+    
+                </div>
+            </p>
+            <p>
+                <button id="AccentColorButton">アクセントカラーを選ぶ！</button>
+                <button class="closeButton_Accent">閉じる</button>
+                <div id="AccentColorDefine">
+                    <p>画像の中からキャラクターのアクセントカラーをクリックしてください。</p>
+                    <p>
+                        <!-- 受け取ったデータベースの画像パス情報からアップロードした対象画像を表示 -->
+                        <% imageName.forEach((imagedata)=>{ %>
+                            <img src="/upload/<%= imagedata.imageName %>" class="analyzed_pic" alt="">
+            
+                        <% }); %> 
+                    </p>
+                    <div class="ButtonList">
+                        <li><button class="choiceOK">決定</button></li>
+                        <li><button class="closeButton_Accent">閉じる</button></li>
+                    </div>
+    
+                    <div class="displayChoice">
+                        <p>アクセントカラーはこの色！</p>
+                        <div class="displayBox"></div>
+                    </div>
+                </div>
+            </p>
+        </div>
+        
+        <div id="Informations">
+            <p><h2>[現在の値と変更値]</h2></p>
+            <% imageName.forEach((imagedata)=>{ %>
+                <p>現在のメインカラー：<%= imagedata.MainColor %><div class="changeM_data"></div></p>
+                <p>現在のアクセントカラー：<%= imagedata.AccentColor %><div class="changeA_data"></div></p>
+
+            <% }); %>
+            
+            <form action="/ColorDecided" method="post" enctype="multipart/form-data">
+                メインカラー：<input type="text" name="MainColorCode" id="submit_main" value="未定">
+                アクセントカラー：<input type="text" name="AccentColorCode" id="submit_accent" value="未定">
+                <% imageName.forEach((imagedata)=>{ %>
+                    <input class="submit_id" type="number" name="imagedata_id" value="<%= imagedata.id %>" style="display:none;">
+                <% }); %>
+                <p><input type="submit" value="この色に決定する"></p>
+            </form>
+            
+            <!-- 受け取ったデータベースの画像パス情報からアップロードした対象画像を表示 -->
+            <% imageName.forEach((imagedata)=>{ %>
+                <img src="/upload/<%= imagedata.imageName %>" id="uploaded_pic" style="display: none;">
+                <canvas id="DisplayCanvas" width="640" height="360" style="display: none;"></canvas>
+
+            <% }); %>       
+        </div>
+
+    </div>
+    
+
+    <script type="module" src="/color_analyze.js"></script>
+</body>
+</html>
